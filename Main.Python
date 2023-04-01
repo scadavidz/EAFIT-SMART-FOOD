@@ -1,0 +1,49 @@
+print("BIENVENIDO A EAFIT SMART FOOD")
+nombrecompleto = input("Ingresa tu nombre completo: ")
+correo = input("Ingresa tu correo electrónico: ")
+if correo.find("@eafit.edu.co") != -1:
+    print("")
+else:
+    print("(ERROR) El correo debe de ser instucional")
+contraseña = input("Ingresa tu contraseña: ")
+
+# Definir una lista de comidas y sus características
+comidas = [
+    {"nombre": "Pizza", "vegetariana": False, "picante": False, "saludable": False},
+    {"nombre": "Hamburguesa", "vegetariana": False, "picante": False, "saludable": False},
+    {"nombre": "Perro", "vegetariana": False, "picante": False, "saludable": False},
+    {"nombre": "Carne", "vegetariana": False, "picante": False, "saludable": True},
+    {"nombre": "Pollo", "vegetariana": False, "picante": False, "saludable": True},
+    {"nombre": "Pasta", "vegetariana": False, "picante": False, "saludable": True},
+    {"nombre": "Salchipapa", "vegetariana": False, "picante": False, "saludable": False},
+    {"nombre": "torta", "vegetariana": False, "picante": False, "saludable": True},
+    {"nombre": "sopa", "vegetariana": False, "picante": False, "saludable": True},
+    {"nombre": "Sandwich", "vegetariana": True, "picante": False, "saludable": True},
+    {"nombre": "Papas a la francesa", "vegetariana": False, "picante": False, "saludable": False},
+]
+print("SUGERENCIAS")
+print("Big Dogger   =   $12.900")
+print("FRISNACK GRANDE   =   $22.100")
+print("FRISCOMBO CLASICO   =   $17.900")
+
+
+
+print("TE REALIZAREMOS UNAS PEQUEÑAS PREGUNTAS")
+# Pedir al usuario sus preferencias
+vegetariana = input("¿Te gusta la comida vegetariana? (si/no): ").lower() == "si"
+picante = input("¿Te gusta la comida picante? (si/no): ").lower() == "si"
+saludable = input("¿Quieres una comida saludable? (si/no): ").lower() == "si"
+
+# Filtrar la lista de comidas según las preferencias del usuario
+comidas_filtradas = []
+for comida in comidas:
+    if comida["vegetariana"] == vegetariana and comida["picante"] == picante and comida["saludable"] == saludable:
+        comidas_filtradas.append(comida)
+
+# Mostrar las comidas recomendadas
+if len(comidas_filtradas) == 0:
+    print("Lo siento, no hay comidas que coincidan con tus preferencias.")
+else:
+    print("Te recomendamos estas comidas:")
+    for comida in comidas_filtradas:
+        print("- " + comida["nombre"])
